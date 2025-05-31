@@ -1,19 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, 
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 
-    'Helvetica Neue', sans-serif;
-    background: #05416e ;
-    color: #222;
+    font-family: -apple-system,
+        BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
+    background: #05416e;
+    color: #292727;
 }
 
-.booklist{
+.title {
+    color: #ffffff;
+}
+
+.buscarTitle {
+    color: #ffffff;
+}
+
+.booklist {
     width: 90vw;
     max-width: 1170px;
     margin: 5em auto;
@@ -21,8 +29,8 @@ body {
     gap: 2em;
 }
 
-@media screen and (min-width: 768px){
-    .booklist{
+@media screen and (min-width: 768px) {
+    .booklist {
         grid-template-columns: repeat(3, 1fr);
         align-items: start;
     }
@@ -42,7 +50,7 @@ body {
     color: #4667d1;
     font-size: 0.99rem;
     margin-top: 0.25rem;
-} 
+}
 
 .book p {
     margin-top: 0.5rem;

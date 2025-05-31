@@ -1,6 +1,6 @@
 # React Book List App
 
-Simple book list with Reactjs
+Simple book list with Reactjs, using Open Library API for search the information
 
 ## Available Scripts
 
@@ -9,6 +9,9 @@ In the project directory, you can run:
 ### `npm i`
 
 Install packages.
+
+### `nvm use`
+To use nodejs v16
 
 ### `npm start`
 
