@@ -1,6 +1,6 @@
 # React Book List App
 
-Simple book list with Reactjs
+Simple book list with Reactjs, using Open Library API for search the information
 
 ## Available Scripts
 
@@ -10,20 +10,25 @@ In the project directory, you can run:
 
 Install packages.
 
-### `npm start`
+### `nvm use`
+To use Node.js 20 (see .nvmrc)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `npm start` ou `npm run dev`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Inicia o servidor de desenvolvimento com Vite.\
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
+
+A página recarrega automaticamente ao salvar alterações (HMR).
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Gera o build de produção na pasta `dist/`.\
+O bundle é minificado e otimizado com Rollup.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run preview`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Serve localmente o conteúdo da pasta `dist/` para testar o build de produção.
+
+### `npm run test` / `npm run test:run`
+
+Executa os testes com Vitest (`test` em modo watch, `test:run` uma vez).
