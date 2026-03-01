@@ -1,8 +1,9 @@
 class BookService {
-  static async fetchBooks(query) {
-    // Codifica o termo de busca para uso seguro na URL
+  static async fetchBooks(query, { limit = 20, offset = 0 } = {}) {
     const search = encodeURIComponent(query);
-    const response = await fetch(`https://openlibrary.org/search.json?title=${search}`);
+    const response = await fetch(
+      `https://openlibrary.org/search.json?title=${search}&limit=${limit}&offset=${offset}`
+    );
     return response.json();
   }
 }

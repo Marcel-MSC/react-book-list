@@ -1,57 +1,416 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system,
-        BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Oxygen, Ubuntu, Cantarell, 'Open Sans',
-        'Helvetica Neue', sans-serif;
-    background: #05416e;
-    color: #292727;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #05416e;
+  color: #292727;
 }
 
 .title {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .buscarTitle {
-    color: #ffffff;
+  color: #ffffff;
+}
+
+/* Top bar / navbar */
+.app-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: #05416e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.app-topbar-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.app-topbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.app-favorites-btn {
+  white-space: nowrap;
+}
+
+.favorites-view {
+  padding-bottom: 2rem;
+}
+
+.favorites-empty {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+.app-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  padding: 1.25rem 1.5rem;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background: #05416e;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.app-footer-author {
+  font-weight: 500;
+}
+
+.app-footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.app-footer-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.app-footer-links a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.btn-load-more {
+  background: #fff;
+  color: #000;
+  border: 1px solid #dee2e6;
+}
+
+.btn-load-more:hover:not(:disabled) {
+  background: #f8f9fa;
+  color: #000;
+  border-color: #adb5bd;
+}
+
+.btn-load-more:disabled {
+  background: #d8d5d5;
+  color: #000;
+  border-color: #adb5bd;
+  opacity: 0.5;
 }
 
 .booklist {
-    width: 90vw;
-    max-width: 1170px;
-    margin: 5em auto;
-    display: grid;
-    gap: 2em;
+  width: 90vw;
+  max-width: 1170px;
+  margin: 5em auto;
+  display: grid;
+  gap: 2em;
 }
 
 @media screen and (min-width: 768px) {
-    .booklist {
-        grid-template-columns: repeat(3, 1fr);
-        align-items: start;
-    }
+  .booklist {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
 }
 
 .book {
-    background: rgb(255, 255, 255);
-    border-radius: 1rem;
-    padding: 1rem 2rem;
+  background: rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+
+.book-cover-wrapper {
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.book-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  min-width: 150px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9ecef;
+  color: #6c757d;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.book-cover-placeholder-text {
+  font-size: 0.8rem;
+  line-height: 1.3;
 }
 
 .book h1 {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .book h4 {
-    color: #4667d1;
-    font-size: 0.99rem;
-    margin-top: 0.25rem;
+  color: #4667d1;
+  font-size: 0.99rem;
+  margin-top: 0.25rem;
 }
 
 .book p {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Loading skeleton */
+.book-skeleton {
+  background: rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+
+.book-skeleton-cover {
+  width: 150px;
+  height: 220px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s ease-in-out infinite;
+}
+
+.book-skeleton-title {
+  height: 1.25rem;
+  margin-top: 0.75rem;
+  width: 80%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s ease-in-out infinite;
+}
+
+.book-skeleton-author {
+  height: 1rem;
+  margin-top: 0.5rem;
+  width: 50%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Fav button */
+.book-star-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-top: 0.5rem;
+}
+
+.book-star-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.15rem;
+  color: #dee2e6;
+  transition: color 0.15s;
+}
+
+.book-star-btn:hover {
+  color: #adb5bd;
+}
+
+.book-star-btn.is-filled,
+.book-star-rating:hover .book-star-btn.is-filled {
+  color: #f0ad4e;
+}
+
+.book-star-rating:hover .book-star-btn.is-filled:hover {
+  color: #ec971f;
+}
+
+/* Table view */
+.booklist-table {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 2em auto;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.booklist-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booklist-table th,
+.booklist-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.booklist-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.booklist-table td .book-table-cover {
+  width: 50px;
+  height: 73px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.booklist-table .book-table-cover-placeholder {
+  width: 50px;
+  height: 73px;
+  background: #e9ecef;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #6c757d;
+}
+
+/* Table: mobile-friendly card-like rows */
+@media screen and (max-width: 767px) {
+  .booklist-table {
+    width: 95vw;
+    margin: 1.5em auto;
+    overflow-x: visible;
+  }
+
+  .booklist-table table {
+    display: block;
+  }
+
+  .booklist-table thead {
+    display: none;
+  }
+
+  .booklist-table tbody {
+    display: block;
+  }
+
+  .booklist-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .booklist-table td {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border: none;
+    border-bottom: 1px solid #f1f3f5;
+  }
+
+  .booklist-table td:last-child {
+    border-bottom: none;
+    padding-top: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .booklist-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #495057;
+    min-width: 4.5rem;
+    flex-shrink: 0;
+  }
+
+  .booklist-table td[data-label="Cover"]::before {
+    display: none;
+  }
+
+  .booklist-table td[data-label="Cover"] {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .booklist-table td .book-table-cover,
+  .booklist-table .book-table-cover-placeholder {
+    width: 48px;
+    height: 70px;
+  }
+
+  .booklist-table td[data-label="Title"] {
+    font-weight: 500;
+  }
+}
+
+/* Search and display mode section */
+.search-and-display {
+  padding: 1rem 1.5rem;
+}
+
+.search-form {
+  padding: 0.5rem 0;
+}
+
+.display-mode {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 0.75rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.display-mode-label {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-toggle button {
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #dee2e6;
+  background: #fff;
+  color: #495057;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.view-toggle button.active {
+  background: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
 }
