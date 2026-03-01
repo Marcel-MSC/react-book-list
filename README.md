@@ -11,7 +11,7 @@ In the project directory, you can run:
 Install packages.
 
 ### `nvm use`
-To use nodejs v16
+To use Node.js 20 (see .nvmrc)
 
 ### `npm start` ou `npm run dev`
 
